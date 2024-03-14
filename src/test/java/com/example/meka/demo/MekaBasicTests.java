@@ -18,7 +18,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MekaDemoTests {
+public class MekaBasicTests {
 
 	private static final String NO = "no";
 	private static final String YES = "yes";
@@ -131,7 +131,7 @@ public class MekaDemoTests {
 		Result result = Evaluation.evaluateModel(classifier, trainInstances, predictInstances);
 
 		System.out.println(Result.getResultAsString(result));
-		// System.out.println(result.toString());
+		System.out.println(result.toString());
 
 		return result;
 	}

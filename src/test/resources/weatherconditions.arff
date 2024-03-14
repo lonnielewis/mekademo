@@ -1,0 +1,49 @@
+@relation 'WeatherConditions: -C 4'
+@attribute football {no, yes}
+@attribute goskiing {no, skiing, snowboarding}
+@attribute gotopark {no, swingset, merrygoround, walk}
+@attribute readabook  {no, yes}
+@attribute temperature {warm, cold, hot}
+@attribute conditions {clear, rain, snow}
+@attribute gender {male, female}
+@attribute energetic {lazy, energetic}
+
+@data
+yes, no, merrygoround, yes, warm, clear, male, lazy
+yes, no, no, yes, hot, clear, male, lazy
+yes, no, swingset, yes, warm, clear, female, lazy
+yes, no, walk, no, hot, clear, male, energetic
+yes, no, walk, yes, hot, clear, female, energetic
+yes, no, no, yes, warm, rain, female, lazy
+yes, no, no, yes, warm, rain, male, lazy
+yes, no, no, yes, cold, snow, female, lazy
+yes, no, no, yes, cold, snow, female, lazy
+yes, skiing, no, yes, cold, snow, female, energetic
+yes, skiing, no, yes, cold, snow, female, energetic
+yes, skiing, no, yes, cold, snow, female, energetic
+yes, snowboarding, no, yes, cold, snow, male, energetic
+yes, snowboarding, no, yes, cold, snow, male, energetic
+yes, snowboarding, no, yes, cold, snow, male, energetic
+yes, no, walk, yes, warm, rain, male, energetic
+yes, no, no, yes, warm, rain, female, lazy
+yes, no, no, yes, cold, rain, female, energetic
+yes, no, no, yes, cold, rain, male, lazy
+yes, no, no, no, cold, rain, male, lazy
+yes, no, no, yes, hot, rain, female, lazy
+yes, no, walk, yes, hot, rain, female,  energetic
+yes, no, no, yes, hot, rain, male, energetic
+yes, no, walk, no, hot, clear, male, energetic
+yes, no, walk, yes, hot, rain, female, energetic
+yes, no, no, yes, hot, rain, female, lazy
+yes, no, no, no, hot, rain, male, lazy
+yes, no, no, no, hot, rain, male, energetic
+yes, no, no, yes, cold, snow, female, lazy
+yes, snowboarding, no, no, cold, snow, male, energetic
+yes, no, no, no, cold, snow, male, lazy
+yes, snowboarding, no, no, cold, snow, female, energetic
+yes, skiing, no, no, cold, snow, female, energetic
+yes, snowboarding, no, no, cold, clear, male, energetic
+yes, no, walk, yes, warm, rain, male, energetic
+yes, no, merrygoround, yes, warm, clear, female, energetic
+yes, no, merrygoround, yes, warm, rain, male, energetic
+yes, no, walk, yes, warm, clear, female, lazy
