@@ -5,6 +5,8 @@ import weka.core.DenseInstance;
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils.DataSource;
+import weka.filters.Filter;
+import weka.filters.unsupervised.instance.RemoveWithValues;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -131,13 +133,25 @@ public class MekaResults {
 
         Result result = Evaluation.evaluateModel(classifier, trainInstances, predictInstances);
 
+        displayResults(result, predictInstances);
+
+        System.out.println("\n\nFiltered data... \n");
+
+        result = Evaluation.evaluateModel(classifier, filterSomeData(trainInstances), predictInstances);
+
+        displayResults(result, predictInstances);
+
+    }
+
+    private void displayResults(Result result, Instances predictInstances) {
+
         // System.out.println(Result.getResultAsString(result));
         // System.out.println(result.toString());
 
         double[][] predictions = result.allPredictions();
         StringBuilder builder = new StringBuilder();
 
-        System.out.println("-- Prediction indexes --");
+        System.out.println("\n-- Prediction indexes --");
         for (double[] thisInstance : predictions) {
             for (double thisAttribute : thisInstance) {
                 builder.append("[" + thisAttribute + "]");
@@ -146,7 +160,7 @@ public class MekaResults {
             builder = new StringBuilder();
         }
 
-        System.out.println("-- Prediction values --");
+        System.out.println("\n-- Prediction values --");
         int instanceIndex = 0;
         for (double[] thisInstance : predictions) {
 
@@ -200,6 +214,30 @@ public class MekaResults {
         MLUtils.prepareData(instance);
 
         return instance;
+
+    }
+
+    private Instances filterSomeData(Instances instances) {
+
+        System.out.println(" -- before removing: " + instances.size());
+
+        RemoveWithValues filter = new RemoveWithValues();
+
+        String[] options = { "-C", "5", "-L", "1" };
+
+        try {
+
+            filter.setInputFormat(instances);
+            filter.setOptions(options);
+            Instances newInstances = Filter.useFilter(instances, filter);
+
+            System.out.println(" -- after" + newInstances.size());
+            return newInstances;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return instances;
+        }
 
     }
 }
